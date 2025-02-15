@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Resume Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .highlight {
+            color: #00e676;
+        }
+
+        .resume-content {
+            text-align: left;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Powered Resume Creator</h1>
+        <h2 class="highlight">Version 1.0</h2>
+        <p>Your intelligent assistant for crafting professional resumes in seconds.</p>
+        <br>
+        <div class="resume-content" id="resumeOutput"></div>
+    </div>
+
+    <script>
+        let name = prompt("Enter your full name:");
+        let address = prompt(" Enter your address:");
+        let phone = prompt(" Enter your phone number:");
+        let email = prompt(" Enter your Email ID:");
+        let university = prompt(" Enter your University name:");
+        
+        let resumeData = `
+            <h2>👤 About Me</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Address:</strong> ${address}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <br>
+
+            <h2>🎯 Career Objective</h2>
+            <p>A passionate Computer Science student eager to leverage technical skills in software development and gain hands-on industry experience.</p>
+            <br>
+
+            <h2>📚 Education</h2>
+            <p><strong>Degree:</strong> Bachelor of Science in Computer Science</p>
+            <p><strong>University:</strong> ${university}</p>
+            <br>
+        `;
+
+        let skillChoice = prompt("💡 Choose your programming skills:\n1) Python\n2) Java\n3) Both\n4) None");
+        if (skillChoice == "1") {
+            resumeData += `<h2>💻 Skills</h2><p>Proficient in Python, including object-oriented programming, data structures, and algorithm optimization.</p>`;
+        } else if (skillChoice == "2") {
+            resumeData += `<h2>💻 Skills</h2><p>Expert in Java with a strong grasp of OOP concepts, frameworks, and scalable software development.</p>`;
+        } else if (skillChoice == "3") {
+            resumeData += `<h2>💻 Skills</h2><p>Skilled in both Python and Java, with expertise in data structures, algorithms, and object-oriented programming.</p>`;
+        }
+        resumeData += `<br>`;
+
+        let additionalSkills = prompt("🔧 List any other programming languages you know:");
+        if (additionalSkills) {
+            resumeData += `<h2>🛠 Additional Skills</h2><p>${additionalSkills}</p><br>`;
+        }
+
+        let projects = prompt("🚀 Enter your project names (comma-separated):");
+        if (projects) {
+            resumeData += `<h2>📂 Projects</h2><p>${projects}</p><br>`;
+        }
+
+        let experience = prompt("💼 Enter your work experience (if any):");
+        if (experience) {
+            resumeData += `<h2>💼 Work Experience</h2><p>${experience}</p><br>`;
+        }
+        
+        resumeData += `<h2>🤝 Let's Connect</h2>
+            <p>Thank you for reviewing my resume. I am available upon request.</p>`;
+
+        document.getElementById("resumeOutput").innerHTML = resumeData;
+    </script>
+</body>
+</html>
